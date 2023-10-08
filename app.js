@@ -12,7 +12,7 @@ require('./auth/passport');
 const app = express();
 
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://kbujak09.github.io/');
+  res.header('Access-Control-Allow-Origin', 'https://blog-frontend-seven-chi.vercel.app/');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
