@@ -11,8 +11,6 @@ require('./auth/passport');
 
 const app = express();
 
-app.use(cors());
-
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -28,6 +26,7 @@ async function main() {
   await mongoose.connect(mongoDB);
 }
 
+app.use(cors());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
 
