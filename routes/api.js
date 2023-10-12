@@ -21,6 +21,6 @@ router.delete('/posts/:id', passport.authenticate('jwt', {session: false}), post
 
 router.post('/comments', passport.authenticate('jwt', {session: false}), commentsController.comments_create);
 
-router.get('/comments', passport.authenticate('jwt', {session: false}), commentsController.comments_list);
+router.get('/comments', commentsController.comments_list);
 
 module.exports = router;

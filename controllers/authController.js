@@ -24,6 +24,14 @@ exports.register = [
     .custom((value, { req }) => value === req.body.password),
 
   asyncHandler(async (req, res, next) => {
+    const existingUser = await User.findOne({ username: req.body.username });
+
+    if (existingUser) {
+      return res.status(403).json({
+        username: req.body.username,
+        errors: [{ msg: 'Username already exists.' }],
+      });
+    }
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(403).json({
